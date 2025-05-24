@@ -12,14 +12,36 @@ namespace Core.Object
         [Header("Setup")]
         [SerializeField] private Transform neckTrans = null;
 
+        [SerializeField] private Color32 hitColour = default;
+
+        private readonly float hitColourDuration = 0.15f;
+
         private readonly float enlargeDuration = 0.1f;
         private readonly float shrinkDuration = 0.2f;
-        private readonly float enlargeFactor = 1.35f; 
+        private readonly float enlargeFactor = 1.35f;
+
+        [Header("Runtime")]
+        private SkinnedMeshRenderer skinnedMeshRenderer = null;
+
+        /// <summary>
+        /// Initialises the animate hand
+        /// </summary>
+        protected override void Initialise()
+        {
+            skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        }
 
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag(TagUtils.FistTag))
             {
+                foreach (Material mat in skinnedMeshRenderer.materials)
+                {
+                    DOTween.Sequence()
+                        .Append(mat.DOColor(hitColour, hitColourDuration))
+                        .Append(mat.DOColor(Color.white, hitColourDuration));
+                }
+
                 PlayRandomHitClip();
                 DOTween.Sequence()
                     .Append(neckTrans.DOScale(Vector3.one * enlargeFactor, enlargeDuration))

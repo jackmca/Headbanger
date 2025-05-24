@@ -356,6 +356,9 @@ MonoBehaviour:
   fistColour:
     serializedVersion: 2
     rgba: 4281611519
+  hitColour:
+    serializedVersion: 2
+    rgba: 4281641471
 --- !u!1 &1459088882364390906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1227,9 @@ MonoBehaviour:
   fistColour:
     serializedVersion: 2
     rgba: 4281611519
+  hitColour:
+    serializedVersion: 2
+    rgba: 4281641471
 --- !u!1 &6722482365997677954
 GameObject:
   m_ObjectHideFlags: 0

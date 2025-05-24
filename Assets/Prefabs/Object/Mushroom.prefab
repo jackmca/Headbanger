@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neckTrans: {fileID: 8651573619208327713}
+  hitColour:
+    serializedVersion: 2
+    rgba: 4278211839
 --- !u!1001 &7457242280382237407
 PrefabInstance:
   m_ObjectHideFlags: 0

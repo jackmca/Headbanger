@@ -75,7 +75,10 @@ namespace Core.Player
 
         private void OnCollisionEnter(Collision collision)
         {
-            PlayerManager.TriggerHaptics(hapticIntensity, hapticDuration, isLeft);
+            if (IsGripped)
+            {
+                PlayerManager.TriggerHaptics(hapticIntensity, hapticDuration, isLeft);
+            }
         }
     }
 }

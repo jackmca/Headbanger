@@ -11,10 +11,6 @@ namespace Core.Player
         [Header("Setup")]
         [SerializeField] private ActionBasedController leftHand = null;
         [SerializeField] private ActionBasedController rightHand = null;
-
-        [SerializeField] private Fist leftFist = null;
-        [SerializeField] private Fist rightFist = null;
-
         public static ActionBasedController LeftHand { get { return Instance.leftHand; } }
         public static ActionBasedController RightHand { get { return Instance.rightHand; } }
 
