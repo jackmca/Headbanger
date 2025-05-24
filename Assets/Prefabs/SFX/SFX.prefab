@@ -55,3 +55,7 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 12278e7e28c03194fb36881fb59997f8, type: 3}
     - Key: mushroom_hit_03
       Value: {fileID: 8300000, guid: 6ebacb89c2aefaa4cb6bae06f8b3d7fd, type: 3}
+    - Key: fist_activate_01
+      Value: {fileID: 8300000, guid: 2d03b01e896172142905cc0e33cb4161, type: 3}
+    - Key: fist_deactivate_01
+      Value: {fileID: 8300000, guid: 207110e027f9412468c3c6d189e3f6ce, type: 3}

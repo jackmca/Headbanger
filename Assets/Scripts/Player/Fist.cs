@@ -1,3 +1,4 @@
+using Core.SFX;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace Core.Player
         private SphereCollider sphereCollider = null;
         private Animator animator = null;
         private SkinnedMeshRenderer skinnedMeshRenderer = null;
+        private TrailRenderer trailRenderer = null;
 
         public bool IsGripped { get; private set; } = false;
 
@@ -42,6 +44,7 @@ namespace Core.Player
             sphereCollider = GetComponent<SphereCollider>();
             animator = GetComponentInChildren<Animator>();
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            trailRenderer = GetComponentInChildren<TrailRenderer>();
 
             skinColour = skinnedMeshRenderer.material.color;
         }
@@ -57,6 +60,8 @@ namespace Core.Player
                 {
                     IsGripped = true;
                     sphereCollider.enabled = true;
+                    trailRenderer.gameObject.SetActive(true);
+                    SFXManager.Play("fist_activate_01", gameObject.transform.position);
                 }
             }
 
@@ -66,6 +71,8 @@ namespace Core.Player
                 {
                     IsGripped = false;
                     sphereCollider.enabled = false;
+                    trailRenderer.gameObject.SetActive(false);
+                    SFXManager.Play("fist_deactivate_01", gameObject.transform.position);
                 }
             }
 
