@@ -3,3 +3,5 @@ All sounds are downloaded and remixed from https://freesound.org/
 S: Punch 3 by qubodup | License: Creative Commons 0
 S: Punch 2 by qubodup | License: Creative Commons 0
 S: Punch 1 by qubodup | License: Creative Commons 0
+S: Torch Swing.wav by SilverIllusionist | License: Attribution 4.0
+S: Extinguishing Match (1).wav by juggle4ben | License: Creative Commons 0

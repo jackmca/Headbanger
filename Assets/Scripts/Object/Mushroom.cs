@@ -4,6 +4,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core.VFX;
 
 namespace Core.Object
 {
@@ -42,6 +43,7 @@ namespace Core.Object
                         .Append(mat.DOColor(Color.white, hitColourDuration));
                 }
 
+                VFXManager.CreateParticle("mushroom_hit_01", collision.contacts[0].point, Quaternion.identity);
                 PlayRandomHitClip();
                 DOTween.Sequence()
                     .Append(neckTrans.DOScale(Vector3.one * enlargeFactor, enlargeDuration))
