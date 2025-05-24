@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,14 @@ namespace Core.Player
     public class Fist : MonoBehaviour
     {
         [Header("Setup")]
+        [SerializeField] private bool isLeft = false;
         [SerializeField] private InputActionProperty gripAction = default;
 
         private readonly Vector3 normalSize = Vector3.one;
         private readonly Vector3 fistSize = new(1.8f, 1.8f, 1.8f);
+
+        private readonly float hapticIntensity = 0.8f;
+        private readonly float hapticDuration = 0.25f;
 
         [Header("Runtime")]
         private SphereCollider sphereCollider = null;
@@ -57,6 +62,11 @@ namespace Core.Player
             }
 
             animator.transform.localScale = Vector3.Lerp(normalSize, fistSize, grip);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            PlayerManager.TriggerHaptics(hapticIntensity, hapticDuration, isLeft);
         }
     }
 }
