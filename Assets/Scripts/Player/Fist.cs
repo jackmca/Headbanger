@@ -10,9 +10,13 @@ namespace Core.Player
     public class Fist : MonoBehaviour
     {
         [Header("Setup")]
+        [Tooltip("Is this fist on the left hand? Else is right")]
         [SerializeField] private bool isLeft = false;
+
+        [Tooltip("The grip input action reference")]
         [SerializeField] private InputActionProperty gripAction = default;
 
+        [Tooltip("The colour in which to turn once a fist is made")]
         [SerializeField] private Color32 fistColour = default;
 
         private readonly Vector3 normalSize = Vector3.one;

@@ -11,8 +11,10 @@ namespace Core.Object
     public class Mushroom : ObjectBase
     {
         [Header("Setup")]
+        [Tooltip("The transform of the neck")]
         [SerializeField] private Transform neckTrans = null;
 
+        [Tooltip("The colour in which to turn once hit")]
         [SerializeField] private Color32 hitColour = default;
 
         private readonly float hitColourDuration = 0.15f;
