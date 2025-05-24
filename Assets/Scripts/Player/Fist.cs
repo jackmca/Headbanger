@@ -50,7 +50,9 @@ namespace Core.Player
             skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             trailRenderer = GetComponentInChildren<TrailRenderer>();
 
+            sphereCollider.enabled = false;
             skinColour = skinnedMeshRenderer.material.color;
+            trailRenderer.gameObject.SetActive(false);
         }
 
         private void Update()
