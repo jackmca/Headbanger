@@ -1,18 +1,15 @@
+using Core.Singleton;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+namespace Core.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerManager : SingletonBase<PlayerManager>
     {
-        
-    }
+        [Header("Setup")]
+        [SerializeField] private Fist leftFist = null;
+        [SerializeField] private Fist rightFist = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
