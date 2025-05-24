@@ -12,6 +12,8 @@ namespace Core.Player
         [SerializeField] private bool isLeft = false;
         [SerializeField] private InputActionProperty gripAction = default;
 
+        [SerializeField] private Color32 fistColour = default;
+
         private readonly Vector3 normalSize = Vector3.one;
         private readonly Vector3 fistSize = new(1.8f, 1.8f, 1.8f);
 
@@ -21,8 +23,11 @@ namespace Core.Player
         [Header("Runtime")]
         private SphereCollider sphereCollider = null;
         private Animator animator = null;
+        private SkinnedMeshRenderer skinnedMeshRenderer = null;
 
         public bool IsGripped { get; private set; } = false;
+
+        private Color32 skinColour = default;
 
         private void Awake()
         {
@@ -34,8 +39,11 @@ namespace Core.Player
         /// </summary>
         private void Initialise()
         {
-            animator = GetComponentInChildren<Animator>();
             sphereCollider = GetComponent<SphereCollider>();
+            animator = GetComponentInChildren<Animator>();
+            skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+            skinColour = skinnedMeshRenderer.material.color;
         }
 
         private void Update()
@@ -62,6 +70,7 @@ namespace Core.Player
             }
 
             animator.transform.localScale = Vector3.Lerp(normalSize, fistSize, grip);
+            skinnedMeshRenderer.material.color = Color32.Lerp(skinColour, fistColour, grip);
         }
 
         private void OnCollisionEnter(Collision collision)
